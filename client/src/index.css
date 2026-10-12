@@ -1,0 +1,557 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ======================================================== */
+/* CLAY.COM DESIGN SYSTEM TOKENS (from DESIGN.md)          */
+/* ======================================================== */
+:root {
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Brand & Accent Colors */
+  --colors-primary: #0a0a0a;
+  --colors-primary-active: #1f1f1f;
+  --colors-primary-disabled: #e5e5e5;
+  --colors-ink: #0a0a0a;
+  --colors-body: #3a3a3a;
+  --colors-body-strong: #1a1a1a;
+  --colors-muted: #6a6a6a;
+  --colors-muted-soft: #9a9a9a;
+  --colors-hairline: #e5e5e5;
+  --colors-hairline-soft: #f0f0f0;
+  
+  /* Warm Canvas & Surface Palette */
+  --colors-canvas: #fffaf0;
+  --colors-surface-soft: #faf5e8;
+  --colors-surface-card: #f5f0e0;
+  --colors-surface-strong: #ebe6d6;
+  --colors-surface-dark: #0a1a1a;
+  --colors-surface-dark-elevated: #1a2a2a;
+  --colors-on-primary: #ffffff;
+  --colors-on-dark: #ffffff;
+  --colors-on-dark-soft: #a0a0a0;
+  
+  /* Saturated 6-Color Feature Palette */
+  --colors-brand-pink: #ff4d8b;
+  --colors-brand-teal: #1a3a3a;
+  --colors-brand-lavender: #b8a4ed;
+  --colors-brand-peach: #ffb084;
+  --colors-brand-ochre: #e8b94a;
+  --colors-brand-mint: #a4d4c5;
+  --colors-brand-coral: #ff6b5a;
+  
+  /* Semantic */
+  --colors-success: #22c55e;
+  --colors-warning: #f59e0b;
+  --colors-error: #ef4444;
+
+  /* Border Radii */
+  --rounded-xs: 6px;
+  --rounded-sm: 8px;
+  --rounded-md: 12px;
+  --rounded-lg: 16px;
+  --rounded-xl: 24px;
+  --rounded-pill: 9999px;
+  --rounded-full: 9999px;
+
+  /* Spacing */
+  --spacing-xxs: 4px;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+  --spacing-section: 96px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--colors-canvas);
+  color: var(--colors-body);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.55;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Layout Containers */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--colors-canvas);
+}
+
+.sidebar {
+  width: 270px;
+  background: var(--colors-surface-soft);
+  border-right: 1px solid var(--colors-surface-strong);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow-y: auto;
+  background-color: var(--colors-canvas);
+}
+
+.page-body {
+  padding: 2.25rem 2.5rem;
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Clay Display Typography */
+h1 {
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--colors-ink);
+  letter-spacing: -0.8px;
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--colors-ink);
+  letter-spacing: -0.4px;
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--colors-ink);
+  letter-spacing: -0.2px;
+  line-height: 1.4;
+}
+
+/* Buttons (Clay.com: rounded 12px, 44px height, Inter 14px/600) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 10px 18px;
+  min-height: 42px;
+  border-radius: var(--rounded-md);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid transparent;
+  outline: none;
+  line-height: 1;
+  font-family: inherit;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-primary {
+  background-color: var(--colors-primary);
+  color: var(--colors-on-primary);
+  border-color: var(--colors-primary);
+}
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--colors-primary-active);
+  box-shadow: 0 4px 12px rgba(10, 10, 10, 0.15);
+}
+
+.btn-secondary {
+  background-color: var(--colors-canvas);
+  color: var(--colors-ink);
+  border-color: var(--colors-hairline);
+}
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--colors-surface-card);
+  border-color: var(--colors-surface-strong);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border-color: var(--colors-hairline);
+  color: var(--colors-body);
+}
+.btn-outline:hover:not(:disabled) {
+  background-color: var(--colors-surface-soft);
+  color: var(--colors-ink);
+  border-color: var(--colors-muted-soft);
+}
+
+.btn-success {
+  background-color: var(--colors-brand-teal);
+  color: var(--colors-on-dark);
+  border-color: var(--colors-brand-teal);
+}
+.btn-success:hover:not(:disabled) {
+  background-color: #122828;
+  box-shadow: 0 4px 12px rgba(26, 58, 58, 0.2);
+}
+
+.btn-danger {
+  background-color: var(--colors-brand-pink);
+  color: #ffffff;
+  border-color: var(--colors-brand-pink);
+}
+.btn-danger:hover:not(:disabled) {
+  background-color: #e63973;
+  box-shadow: 0 4px 12px rgba(255, 77, 139, 0.25);
+}
+
+.btn-sm {
+  min-height: 32px;
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: var(--rounded-sm);
+}
+
+/* Clay Cards */
+.card {
+  background: #ffffff;
+  border: 1px solid var(--colors-hairline);
+  border-radius: var(--rounded-xl);
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+/* Saturated Feature Cards (from DESIGN.md) */
+.feature-card-pink {
+  background-color: var(--colors-brand-pink);
+  color: var(--colors-on-primary);
+  border-radius: var(--rounded-xl);
+  padding: 24px;
+  border: none;
+}
+
+.feature-card-teal {
+  background-color: var(--colors-brand-teal);
+  color: var(--colors-on-dark);
+  border-radius: var(--rounded-xl);
+  padding: 24px;
+  border: none;
+}
+
+.feature-card-lavender {
+  background-color: var(--colors-brand-lavender);
+  color: var(--colors-ink);
+  border-radius: var(--rounded-xl);
+  padding: 24px;
+  border: none;
+}
+
+.feature-card-peach {
+  background-color: var(--colors-brand-peach);
+  color: var(--colors-ink);
+  border-radius: var(--rounded-xl);
+  padding: 24px;
+  border: none;
+}
+
+.feature-card-ochre {
+  background-color: var(--colors-brand-ochre);
+  color: var(--colors-ink);
+  border-radius: var(--rounded-xl);
+  padding: 24px;
+  border: none;
+}
+
+.feature-card-cream {
+  background-color: var(--colors-surface-card);
+  color: var(--colors-ink);
+  border-radius: var(--rounded-xl);
+  padding: 24px;
+  border: 1px solid var(--colors-surface-strong);
+}
+
+/* Stat Grid */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.stat-card {
+  border-radius: var(--rounded-xl);
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid var(--colors-hairline);
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.stat-card .stat-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+  color: var(--colors-muted);
+}
+
+.stat-card .stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--colors-ink);
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+
+.stat-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--rounded-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Pill Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: var(--rounded-pill);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  border: 1px solid transparent;
+}
+
+.badge-draft {
+  background-color: var(--colors-surface-card);
+  color: var(--colors-muted);
+  border-color: var(--colors-surface-strong);
+}
+
+.badge-pending {
+  background-color: #fff3dc;
+  color: #92400e;
+  border-color: #fde68a;
+}
+
+.badge-approved {
+  background-color: #e6f7f2;
+  color: #047857;
+  border-color: var(--colors-brand-mint);
+}
+
+.badge-rejected {
+  background-color: #ffe8f0;
+  color: #be123c;
+  border-color: #fecdd3;
+}
+
+.badge-role-employee {
+  background-color: var(--colors-surface-card);
+  color: var(--colors-ink);
+  border-color: var(--colors-surface-strong);
+}
+
+.badge-role-director {
+  background-color: #f4efff;
+  color: #6b21a8;
+  border-color: var(--colors-brand-lavender);
+}
+
+.badge-role-accounts {
+  background-color: #eafaf4;
+  color: #047857;
+  border-color: var(--colors-brand-mint);
+}
+
+/* Form Inputs (Clay.com: rounded 12px, 44px height, hairline border) */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--colors-ink);
+  margin-bottom: 6px;
+  letter-spacing: 0.01em;
+}
+
+.form-label .required {
+  color: var(--colors-brand-pink);
+  margin-left: 2px;
+}
+
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--colors-hairline);
+  border-radius: var(--rounded-md);
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--colors-ink);
+  background-color: #ffffff;
+  transition: all 0.15s ease;
+  outline: none;
+  min-height: 44px;
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: var(--colors-ink);
+  box-shadow: 0 0 0 3px rgba(10, 10, 10, 0.08);
+}
+
+.form-input.error, .form-select.error, .form-textarea.error {
+  border-color: var(--colors-brand-pink);
+  background-color: #fff9fb;
+}
+
+.form-error {
+  font-size: 12px;
+  color: var(--colors-brand-pink);
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+/* Data Table */
+.table-container {
+  overflow-x: auto;
+  border: 1px solid var(--colors-hairline);
+  border-radius: var(--rounded-xl);
+  background: #ffffff;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 14px;
+}
+
+.data-table th {
+  background-color: var(--colors-surface-soft);
+  color: var(--colors-ink);
+  font-weight: 600;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--colors-surface-strong);
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+.data-table td {
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--colors-hairline-soft);
+  color: var(--colors-body);
+  vertical-align: middle;
+}
+
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+
+.data-table tr:hover td {
+  background-color: var(--colors-canvas);
+}
+
+/* Modals */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.45);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  padding: 16px;
+}
+
+.modal-content {
+  background: #ffffff;
+  border-radius: var(--rounded-xl);
+  width: 100%;
+  max-width: 580px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--colors-hairline);
+  overflow: hidden;
+  animation: modalScale 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalScale {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Printable Official Receipt */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .printable-voucher, .printable-voucher * {
+    visibility: visible;
+  }
+  .printable-voucher {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 24px;
+    background: #ffffff;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .app-container {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--colors-hairline);
+  }
+  .page-body {
+    padding: 1.5rem 1rem;
+  }
+}

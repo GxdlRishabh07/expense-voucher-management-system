@@ -1,0 +1,16 @@
+{
+  "name": "expense-voucher-management-system",
+  "version": "1.0.0",
+  "description": "Full Stack Expense Voucher Management System for Prachay Securities Private Limited",
+  "scripts": {
+    "dev": "node -e \"console.log('Use separate terminals or npm run start:server and npm run start:client')\"",
+    "start:server": "npm run dev --prefix server",
+    "start:client": "npm run dev --prefix client",
+    "seed": "npm run seed --prefix server",
+    "test": "npm test --prefix tests",
+    "test:headed": "npm run test:headed --prefix tests"
+  },
+  "keywords": ["expense-voucher", "full-stack", "react", "express", "sqlite", "playwright"],
+  "author": "Full Stack Developer Candidate",
+  "license": "ISC"
+}

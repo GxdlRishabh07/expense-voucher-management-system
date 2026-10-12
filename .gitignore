@@ -1,0 +1,62 @@
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Environment and Secrets (NEVER COMMIT CREDENTIALS)
+.env
+.env.*
+!.env.example
+server/.env
+server/.env.*
+!server/.env.example
+client/.env
+client/.env.*
+*.pem
+*.key
+*.cert
+
+# Assignment PDF & Confidential Docs
+*.pdf
+Full Stack Developer Internship Assignment PSPL.pdf
+
+# Database files
+server/src/db/*.sqlite*
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+*.db
+*.db-journal
+
+# Uploads (Keep folder structure and seed files, ignore runtime uploads)
+server/uploads/signatures/*
+!server/uploads/signatures/.gitkeep
+!server/uploads/signatures/seed-director-signature.png
+!server/uploads/signatures/seed-employee-signature.png
+
+# Build outputs
+client/dist/
+dist/
+
+# Logs & Debugging
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Playwright & Testing artifacts / Screenshots
+test-results/
+playwright-report/
+tests/test-results/
+tests/playwright-report/
+.playwright-cli/
+.playwright/
+videos/
+screenshots/
+*.webm
+*.webp
+
+# OS Files
+.DS_Store
+**/.DS_Store
+Thumbs.db
